@@ -1,0 +1,27 @@
+Codebook
+
+The script run_analysis.R performs the 5 steps described in the course project's definition (and README-file).
+
+Dataset used
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
+Files used
+- testset - from the file "X_test.txt" (contains all the results from the 561 columns of test data)
+- trainset - from the file "X_train.txt" (contains all the results from the 561 columns of training data)
+- headings - from the file "features.txt" (contains the name of the 561 different results)
+- labelstest - from the file "y_test.txt" (contains the numbers from 1 to 6, indicating which activity was performed, test)
+- labelstrain - from the file "y_train.txt" (contains the number from 1 to 6, indicating whcih activity wax performed, training)
+- "activity_labels.txt" - contains the transformation of numbered activity (1-6), to named activity
+
+Variables
+- "testset" and "trainset" contain the data from the downloaded files and are merged to "mergedset"
+- "headings" contain the names of each measurement and is added to "mergedset"
+- "mergedset" is subsetted to include only measurements of mean and std dev in "mergedsubset"
+- "labelstest" and "labelstrain" are data from the downloaded files with information about which activity is performed
+- "labelstest" and "labelstrain" are merged in "mergedlabels" and added to the "mergedsubset" making "data_with_labels"
+- The labels are then converted to more descriptive values (1 = WALKING etc)
+- Some of the column names are cleaned up using gsub()
+- "subjectstest" and "subjectstrain" are merged and added to "data_with_labels" making "complete data"
+- "tidydata.txt" is generated using aggregate() and write.table()
+
+
